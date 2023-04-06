@@ -6,19 +6,32 @@ import TellerCashManagement from './TellerCashManagment/TellerCashManagement'
 
 function App() {
   const [showSearch, setShowSearch] = useState(true)
+  const [showCashManagement, setShowCashManagement] = useState(true)
+  const [showNonCustomer, setShowNonCustomer] = useState(true)
 
   const nonCustomerButtonSearchHandler = () =>{
       setShowSearch(false)
+      setShowCashManagement(false)
+  }
+
+  const customerSearchHandler = () =>{
+    setShowNonCustomer(false)
+    setShowCashManagement(false)
+  }
+
+  const cashManagementHandler = ()=>{
+    setShowSearch(false)
+    setShowNonCustomer(false)
   }
   return (
     <div className="App">
       <div className='customer-search'>
-        {showSearch && <CustomerSearchBar/>}
+        {showSearch && <CustomerSearchBar onButtonClick={customerSearchHandler}/>}
       </div>
       <div className='non-customer-button'>
-      <NonCustomerButton onButtonClick={nonCustomerButtonSearchHandler}/>
+      {showNonCustomer&&<NonCustomerButton onButtonClick={nonCustomerButtonSearchHandler}/>}
       </div>
-      <TellerCashManagement/>
+      {showCashManagement&&<TellerCashManagement onButtonClick={cashManagementHandler}/>}
     </div>
   )
 }

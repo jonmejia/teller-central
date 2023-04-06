@@ -1,12 +1,19 @@
 import { useState } from "react";
 import CustomerSearchOptions from "./CustomerSearchOptions";
 
-const CustomerSearchBar = () =>{
+interface CustomerSearchProps {
+    onButtonClick: () => void;
+  }
+
+const CustomerSearchBar = ({onButtonClick}: CustomerSearchProps) =>{
+    const handleClick = () =>{
+        onButtonClick()
+    }
     return(
         <div>
         <CustomerSearchOptions/>
         <input type="text" name="customerSearchBar" id="customerSearchBar" />
-        <button type="submit">submit</button>
+        <button onClick={handleClick} type="submit">submit</button>
         </div>
     )
 }

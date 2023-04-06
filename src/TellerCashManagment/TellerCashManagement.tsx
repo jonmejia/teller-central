@@ -1,15 +1,34 @@
 import { useState } from "react";
 import BuySell from "./BuySell";
+import Balance from "./Balance";
 
-const TellerCashManagement =() =>{
-    const [showBuySell, setBuySell] = useState(true)
+interface cashManagementProps {
+    onButtonClick: () => void;
+  }
+
+const TellerCashManagement =({onButtonClick}: cashManagementProps) =>{
+    const [showBuySell, setBuySell] = useState(false)
     const buySellButtonHandler = () =>{
-        setBuySell(false)
+        setBuySell(true)
+        onButtonClick()
+    }
+    const [showBalance, setBalance] = useState(false)
+    const balanceButtonHandler = () =>{
+        setBalance(true)
+        onButtonClick()
     }
     return(
         <div>
-        {showBuySell && (<button onClick={buySellButtonHandler} type="button">Buy/Sell</button>)}
-        {!showBuySell && <BuySell />}
+        {!showBuySell && (
+        <div>
+            <button onClick={buySellButtonHandler} type="button">Buy/Sell</button>
+            <button onClick={balanceButtonHandler} type="button">Balance</button>
+        </div>
+        )}
+
+        {showBuySell && <BuySell />}
+
+        {showBalance && <Balance/>}
         </div>
     )
 }
