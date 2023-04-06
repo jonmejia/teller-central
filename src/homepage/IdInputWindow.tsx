@@ -16,7 +16,7 @@ const IdInputWindow = () =>{
         setExpirationDate(e.target.value)
     }
 
-    const handleSubmit = () =>{
+    const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) =>{
         console.log(licenseNumber,stateOfOrigin,expirationDate)
     }
 
