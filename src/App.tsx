@@ -1,15 +1,20 @@
 import { useState } from 'react'
 import './App.css'
-import CustomerSearchBar from './assets/CustomerSearchBar'
-import NonCustomerButton from './NonCustomerButton'
+import CustomerSearchBar from './homepage/CustomerSearchBar'
+import NonCustomerButton from './homepage/NonCustomerButton'
 
 function App() {
+  const [showSearch, setShowSearch] = useState(true)
+
+  const nonCustomerButtonSearchHandler = () =>{
+      setShowSearch(false)
+  }
   return (
     <div className="App">
       <div className='customer-search'>
+        {showSearch && <CustomerSearchBar/>}
       </div>
-      <CustomerSearchBar/>
-      <NonCustomerButton/>
+      <NonCustomerButton onButtonClick={nonCustomerButtonSearchHandler}/>
     </div>
   )
 }

@@ -2,7 +2,7 @@ const CustomerSearchOptions = () =>
 {
     return(
         <div className="search-bar-container">
-            <p>Search customer by</p>
+            <p>Search customer by:</p>
             <label htmlFor="accountNumber">Account Number</label>
             <input type="radio" name="searchType" id="accountNumber" />
             <label htmlFor="socialSecurityNumber">Social Security Number</label>
