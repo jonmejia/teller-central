@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import CustomerSearchBar from './assets/CustomerSearchBar'
 import NonCustomerButton from './NonCustomerButton'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <div className='customer-search'>
       </div>
+      <CustomerSearchBar/>
       <NonCustomerButton/>
     </div>
   )
